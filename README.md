@@ -1,7 +1,4 @@
 ![ios](https://img.shields.io/badge/iOS-13-green)
-![tv](https://img.shields.io/badge/tvOS-13-green)
-![watch](https://img.shields.io/badge/watchOS-6-green)
-![mac](https://img.shields.io/badge/macOS-10.15-green)
 
 # ScaledMetric
 
