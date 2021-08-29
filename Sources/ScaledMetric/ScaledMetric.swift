@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A dynamic property that scales a numeric value.
 @propertyWrapper
-public struct ScaledMetric<Value>: DynamicProperty where Value: BinaryFloatingPoint {
+public struct ScaledValue<Value>: DynamicProperty where Value: BinaryFloatingPoint {
 
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
