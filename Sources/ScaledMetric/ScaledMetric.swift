@@ -4,8 +4,6 @@ import SwiftUI
 @propertyWrapper
 public struct ScaledValue<Value>: DynamicProperty where Value: BinaryFloatingPoint {
 
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.sizeCategory) var sizeCategory
 
     private let baseValue: Value
@@ -13,8 +11,6 @@ public struct ScaledValue<Value>: DynamicProperty where Value: BinaryFloatingPoi
 
     public var wrappedValue: Value {
         let traits = UITraitCollection(traitsFrom: [
-            UITraitCollection(horizontalSizeClass: UIUserInterfaceSizeClass(sizeClass: horizontalSizeClass)),
-            UITraitCollection(verticalSizeClass: UIUserInterfaceSizeClass(sizeClass: verticalSizeClass)),
             UITraitCollection(preferredContentSizeCategory: UIContentSizeCategory(sizeCategory: sizeCategory))
         ])
 
@@ -37,17 +33,6 @@ public struct ScaledValue<Value>: DynamicProperty where Value: BinaryFloatingPoi
         self.init(baseValue: wrappedValue, metrics: UIFontMetrics(forTextStyle: textStyle))
     }
 
-}
-
-private extension UIUserInterfaceSizeClass {
-
-    init(sizeClass: UserInterfaceSizeClass?) {
-        switch sizeClass {
-        case .compact: self = .compact
-        case .regular: self = .regular
-        default: self = .unspecified
-        }
-    }
 }
 
 private extension UIContentSizeCategory {
